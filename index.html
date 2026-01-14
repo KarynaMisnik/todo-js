@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+</head>
+<body>
+    <h1>To Do List</h1>
+    <ul id="todoList">
+    <li></li>
+
+    </ul>
+
+    <input type="text" id="newTodo" placeholder="Add a new todo">
+    <button id="addTodo">Add Task</button>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Roboto, 'sans-serif';
+        }
+
+    ul{
+        list-style-type: square;
+        padding: 0;
+    }
+
+    .done {
+  text-decoration: line-through;
+}
+
+    </style>
+
+    <script>
+const list = document.getElementById("todoList");
+const newTodo = document.getElementById("newTodo");
+const addTodo = document.getElementById("addTodo");
+
+    addTodo.onclick = () => {
+        const task = newTodo.value;
+        if(task){
+            const listItem = document.createElement("li");
+            listItem.textContent = task;
+            list.appendChild(listItem);
+            newTodo.value = "";
+        }
+    } 
+
+    list.addEventListener("click", e => {
+        if (e.target.tagName === "LI") {
+            e.target.classList.toggle("done");
+        }
+    });
+
+    </script>
+
+</body>
+</html>
