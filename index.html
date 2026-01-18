@@ -12,9 +12,9 @@
     <div class="add-new-todo"><input type="text" id="newTodo" placeholder="Add a new item"><button id="addTodo">Add Item</button></div>
 
     <div class="list-container"><ul id="todoList">
-        <li>Todo 1<button>Delete</button></li>
-        <li>Todo 2<button>Delete</button></li>
-        <li>Todo 3<button>Delete</button></li>
+        <li>Todo 1<button class="btn delete-btn">Delete</button></li>
+        <li>Todo 2<button class="btn delete-btn">Delete</button></li>
+        <li>Todo 3<button class="btn delete-btn">Delete</button></li>
 
     </ul>
 </div>
@@ -35,6 +35,14 @@
             padding: 0.5rem;
             border-radius: .5rem;
             cursor: pointer;
+            font-size: large;
+            font-weight: 700;
+        }
+
+        #addTodo{
+            background-color: #037103;
+            color: white;
+            border: 3px solid #7cf57c;
         }
 
         h1{
@@ -84,6 +92,12 @@
   text-decoration: line-through;
 }
 
+.delete-btn{
+    background-color: #9f0404;
+    color: white;
+    border: 3px solid #f57c7c;
+}
+
     </style>
 
 <!-- JavaScript -->
@@ -100,6 +114,7 @@ const addTodo = document.getElementById("addTodo");
             listItem.textContent = task;
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Delete";
+                        deleteButton.classList.add("delete-btn"); // Look style in CSS part
                     deleteButton.onclick = () => listItem.remove();
             listItem.appendChild(deleteButton);
             list.appendChild(listItem);
