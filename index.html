@@ -7,21 +7,36 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <ul id="todoList">
-    <li></li>
+    <div class="todo-wrapper">
+    <div class="new-todo"><input type="text" id="newTodo" placeholder="Add a new todo"></div>
 
+    <div class="list-container"><ul id="todoList">
+        <li>Todo 1</li>
+        <li>Todo 2</li>
+        <li>Todo 3</li>
+    
     </ul>
-
-    <input type="text" id="newTodo" placeholder="Add a new todo">
+</div>
+</div>
+    
     <button id="addTodo">Add Task</button>
 
     <style>
         body{
+            font-family: Roboto, 'sans-serif';
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+.todo-wrapper{
+    display: flex;
             justify-content: center;
-            font-family: Roboto, 'sans-serif';
+            align-items: center;
+}
+
+        .list-container{
+            margin: 1.5rem;
         }
 
     ul{
