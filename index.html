@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do</title>
 </head>
+<!-- HTML -->
 <body>
     <h1>To Do List</h1>
     <div class="todo-wrapper">
-    <div class="new-todo"><input type="text" id="newTodo" placeholder="Add a new todo"></div>
+    <div class="add-new-todo"><input type="text" id="newTodo" placeholder="Add a new item"><button id="addTodo">Add Item</button></div>
 
     <div class="list-container"><ul id="todoList">
-        <li>Todo 1</li>
-        <li>Todo 2</li>
-        <li>Todo 3</li>
-    
+        <li>Todo 1<button>Delete</button></li>
+        <li>Todo 2<button>Delete</button></li>
+        <li>Todo 3<button>Delete</button></li>
+
     </ul>
 </div>
 </div>
     
-    <button id="addTodo">Add Task</button>
-
+    
+<!-- CSS -->
     <style>
         body{
             font-family: Roboto, 'sans-serif';
@@ -29,10 +30,29 @@
             align-items: center;
         }
 
+        button{
+            margin: 0.5rem 0 0 0.5rem;
+            padding: 0.5rem;
+            border-radius: .5rem;
+            cursor: pointer;
+        }
+
 .todo-wrapper{
     display: flex;
             justify-content: center;
             align-items: center;
+}
+
+.add-new-todo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#newTodo{
+    padding: 0.5rem;
+    border-radius: .5rem;
 }
 
         .list-container{
@@ -44,11 +64,18 @@
         padding: 0;
     }
 
+    li{
+        margin: 0.5rem 0;
+        cursor: pointer;
+    }
+
     .done {
   text-decoration: line-through;
 }
 
     </style>
+
+<!-- JavaScript -->
 
     <script>
 const list = document.getElementById("todoList");
@@ -60,6 +87,10 @@ const addTodo = document.getElementById("addTodo");
         if(task){
             const listItem = document.createElement("li");
             listItem.textContent = task;
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+                    deleteButton.onclick = () => listItem.remove();
+            listItem.appendChild(deleteButton);
             list.appendChild(listItem);
             newTodo.value = "";
         }
