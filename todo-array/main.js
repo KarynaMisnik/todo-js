@@ -18,6 +18,7 @@ function renderTodos() {
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn"); // look up the class in CSS styles
     deleteButton.onclick = () => {
       todos = todos.filter((t) => t.id !== todo.id);
       renderTodos();
