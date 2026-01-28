@@ -1,134 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>To Do</title>
 </head>
 <!-- HTML -->
+
 <body>
     <h1>To Do List</h1>
     <div class="todo-wrapper">
-    <div class="add-new-todo"><input type="text" id="newTodo" placeholder="Add a new item"><button id="addTodo">Add Item</button></div>
+        <div class="add-new-todo">
+            <div class="input-group">
+                <input type="text" id="newTodo" placeholder="Add a new item">
+                <div class="dropdown">
+                    <button class="dropbtn">Priority</button>
+                    <div class="dropdown-content">
+                        <a href="#">HIGH</a>
+                        <a href="#">MEDIUM</a>
+                        <a href="#">LOW</a>
+                    </div>
+                </div>
+            </div>
 
-    <div class="list-container"><ul id="todoList">
-        <li>Todo 1<button class="btn delete-btn">Delete</button></li>
-        <li>Todo 2<button class="btn delete-btn">Delete</button></li>
-        <li>Todo 3<button class="btn delete-btn">Delete</button></li>
+            <button id="addTodo">Add</button>
+        </div>
 
-    </ul>
-</div>
-</div>
-    
-    
-<!-- CSS -->
-    <style>
-        body{
-            font-family: Roboto, 'sans-serif';
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        <div class="list-container">
+            <ul id="list">
 
-        button{
-            margin: 0.5rem 0 0 0.5rem;
-            padding: 0.5rem;
-            border-radius: .5rem;
-            cursor: pointer;
-            font-size: large;
-            font-weight: 700;
-        }
 
-        #addTodo{
-            background-color: #037103;
-            color: white;
-            border: 3px solid #7cf57c;
-        }
+            </ul>
+        </div>
+    </div>
 
-        h1{
-            color: #0a0aa0;
-            font-weight: 900;
-        }
 
-.todo-wrapper{
-    display: flex;
-            justify-content: center;
-            align-items: center;
-}
+    <!-- JavaScript -->
 
-.add-new-todo{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-#newTodo{
-    padding: 0.5rem;
-    border-radius: .5rem;
-}
-
-        .list-container{
-            margin: 1.5rem;
-        }
-
-    ul{
-        list-style-type: square;
-        padding: 0;
-    }
-
-    li{
-        margin: 0.5rem 0;
-        cursor: pointer;
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
-
-    li:nth-child(odd){
-        color: #3333cc;
-    }
-
-    .done {
-  text-decoration: line-through;
-}
-
-.delete-btn{
-    background-color: #9f0404;
-    color: white;
-    border: 3px solid #f57c7c;
-}
-
-    </style>
-
-<!-- JavaScript -->
-
-    <script>
-const list = document.getElementById("todoList");
-const newTodo = document.getElementById("newTodo");
-const addTodo = document.getElementById("addTodo");
-
-    addTodo.onclick = () => {
-        const task = newTodo.value;
-        if(task){
-            const listItem = document.createElement("li");
-            listItem.textContent = task;
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Delete";
-                        deleteButton.classList.add("delete-btn"); // Look style in CSS part
-                    deleteButton.onclick = () => listItem.remove();
-            listItem.appendChild(deleteButton);
-            list.appendChild(listItem);
-            newTodo.value = "";
-        }
-    } 
-
-    list.addEventListener("click", e => {
-        if (e.target.tagName === "LI") {
-            e.target.classList.toggle("done");
-        }
-    });
-
-    </script>
+    <script src="main.js"> </script>
 
 </body>
+
 </html>
