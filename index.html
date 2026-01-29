@@ -4,14 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <!-- FONT Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>To Do</title>
+    <link rel="stylesheet" href="styles.css">
+   
 </head>
 <!-- HTML -->
 
 <body>
-    <h1>To Do List</h1>
+    
+    <nav>
+        <i class="fa fa-bars nav-toggle"></i>
+        <ul class="nav-bar-container"><li class="nav-item item1"><a href="index.html">HOME</a></li>
+    <li class="nav-item item2">CONTACT</li>
+    </ul></nav>
+    <header><h1>To Do List</h1></header>
+    
     <div class="todo-wrapper">
+        <main>
         <div class="add-new-todo">
             <div class="input-group">
                 <input type="text" id="newTodo" placeholder="Add a new item">
@@ -34,6 +45,8 @@
 
             </ul>
         </div>
+        </main>
+        <footer>This is footer</footer>
     </div>
 
 

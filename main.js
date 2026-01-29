@@ -118,3 +118,11 @@ addTodo.onclick = () => {
 // Initial render
 saveTodos();
 renderTodos();
+
+// Navbar toggle for mobile view
+const toggle = document.querySelector(".nav-toggle");
+const menu = document.querySelector(".nav-bar-container");
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
