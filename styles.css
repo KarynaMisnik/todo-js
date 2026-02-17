@@ -9,7 +9,12 @@
   --light-green: #c4fac4;
   --light-grey: #adb8c2;
   --white: #ffffff;
+  --accept-btn: #2c462c;
   --btn-field-font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
 }
 
 html,
@@ -76,7 +81,7 @@ nav .nav-bar-container {
 #addTodo {
   width: 100%;
   padding: 1rem;
-  background-color: #2c462c;
+  background-color: var(--accept-btn);
   color: var(--white);
   border: 3px solid var(--light-green);
   border-radius: 0.5rem;
@@ -241,5 +246,55 @@ footer {
   border: 3px solid #f57c7c;
   border-radius: 8px;
   padding: 0.3rem;
+  font-weight: 700;
+}
+
+/* Contact Page Styles */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container > * {
+  margin: 1rem;
+}
+
+label {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 2px solid var(--light-grey);
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 2px solid var(--light-grey);
+}
+
+.submit-contact {
+  padding: 1rem;
+  background-color: var(--accept-btn);
+  color: var(--white);
+  border: 3px solid var(--light-green);
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
