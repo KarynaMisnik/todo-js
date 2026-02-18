@@ -46,6 +46,7 @@ function renderTodos() {
 
   todos.forEach((todo) => {
     const li = document.createElement("li");
+    li.style.backgroundColor = "var(--light-grey)";
 
     const textSpan = document.createElement("span");
     textSpan.classList.add("todo-text");
@@ -118,3 +119,25 @@ addTodo.onclick = () => {
 // Initial render
 saveTodos();
 renderTodos();
+
+// Fetch JSON data
+
+fetch("course.json")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data); // your parsed object
+    document.getElementById("course-name").textContent =
+      data.course["courseName"];
+    document.getElementById("status").textContent = data.course.status
+      ? "Active"
+      : "Inactive";
+    document.getElementById("teacher").textContent =
+      data.course.teacher[0]["name"];
+    document.getElementById("students").innerHTML = "";
+    data.course.students.forEach((student) => {
+      const li = document.createElement("li");
+      li.style.backgroundColor = undefined;
+      li.textContent = student["name"];
+      document.getElementById("students").appendChild(li);
+    });
+  });

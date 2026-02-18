@@ -215,7 +215,7 @@ li {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--white);
-  background-color: var(--light-grey);
+
   padding: 0.5rem;
   border-radius: 8px;
 }
@@ -301,4 +301,30 @@ textarea {
 
 .back-home {
   color: var(--white);
+}
+
+.json {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.course-title {
+  display: flex;
+  align-items: center;
+}
+.course-title h1 {
+  margin-right: 1rem;
+}
+
+#status {
+  color: var(--light-green);
+  font-weight: 700;
+}
+
+#teacher {
+  color: var(--white);
+  margin: 1rem 0;
 }

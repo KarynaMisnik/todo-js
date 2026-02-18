@@ -1,0 +1,32 @@
+{
+    "course": {
+        "id": 1,
+        "courseName": "Frontend Development",
+        "description": "Learn the basics of programming using Python.",
+        "status": true,
+        "teacher": [
+            {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john.doe@example.com"
+            }
+        ],
+        "students": [
+            {
+                "id": 1,
+                "name": "Jane Smith",
+                "email": "jane.smith@example.com"
+            },
+            {
+                "id": 2,
+                "name": "Emily Davis",
+                "email": "emily.davis@example.com"
+            },
+            {
+                "id": 3,
+                "name": "Michael Brown",
+                "email": "michael.brown@example.com"
+            }
+        ]
+    }
+}
