@@ -141,3 +141,22 @@ fetch("course.json")
       document.getElementById("students").appendChild(li);
     });
   });
+
+// Fetch Joke API
+
+async function getJoke() {
+  try {
+    const response = await fetch(
+      "https://official-joke-api.appspot.com/jokes/programming/random",
+    );
+    const data = await response.json();
+    const joke = data[0];
+
+    document.getElementById("setup").textContent = joke.setup;
+    document.getElementById("punchline").textContent = joke.punchline;
+  } catch (error) {
+    console.error("Error fetching joke:", error);
+  }
+}
+
+getJoke();

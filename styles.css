@@ -328,3 +328,18 @@ textarea {
   color: var(--white);
   margin: 1rem 0;
 }
+
+#joke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  margin: 2rem 0;
+}
+
+#joke > p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
