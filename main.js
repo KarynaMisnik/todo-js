@@ -21,6 +21,13 @@ priorityLinks.forEach((link) => {
   };
 });
 
+document.getElementById("logPriorities").addEventListener("click", () => {
+  const items = document.querySelectorAll(".list-container li");
+  items.forEach((li) => {
+    console.log(li.dataset.priority); // logs 1, 2, 3...
+  });
+});
+
 // Array to store todos
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
@@ -40,6 +47,11 @@ function getPriorityText(priority) {
   return "LOW";
 }
 
+document.getElementById("sortButton").addEventListener("click", () => {
+  sortTodos(); // sorts array
+  renderTodos(); // updates UI
+});
+
 // Render todos
 function renderTodos() {
   list.innerHTML = "";
@@ -52,6 +64,16 @@ function renderTodos() {
     textSpan.classList.add("todo-text");
     textSpan.textContent = `${todo.text} (${todo.priority})`;
 
+    //dataset priority
+    li.dataset.priority = todo.priority;
+
+    document.getElementById("logPriorities").addEventListener("click", () => {
+      const items = document.querySelectorAll("#todoList li");
+      items.forEach((li) => {
+        console.log(li.dataset.priority);
+      });
+    });
+
     if (todo.completed) {
       textSpan.classList.add("done");
     }
@@ -62,8 +84,8 @@ function renderTodos() {
       renderTodos();
     });
 
-    //li.style.textDecoration = todo.completed ? "line-through" : "none";
-    //li.textContent = `[${getPriorityText(todo.priority)}] ${todo.text}`;
+    li.style.textDecoration = todo.completed ? "line-through" : "none";
+    li.textContent = `[${getPriorityText(todo.priority)}] ${todo.text}`;
 
     // Visual priority border
     if (todo.priority === 1) li.style.borderLeft = "20px solid red";
@@ -110,7 +132,7 @@ addTodo.onclick = () => {
 
   todos.push(todo);
 
-  sortTodos();
+  //sortTodos();
   saveTodos();
   renderTodos();
   newTodo.value = "";
